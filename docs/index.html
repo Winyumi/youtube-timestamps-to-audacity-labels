@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YouTube Timestamps To Audacity Labels</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+    </style>
+    <style type="text/tailwindcss">
+      @theme {
+        --font-sans: "Inter", sans-serif;
+      }
+      :root {
+        @apply font-sans text-[14px];
+      }
+      .button {
+        @apply border border-gray-400 bg-gray-100 active:bg-gray-200 rounded px-3 py-2 cursor-pointer;
+      }
+    </style>
+    <script src="./assets/js/main.js" defer></script>
+  </head>
+  <body class="p-8">
+    <div class="max-w-[600px] mx-auto flex flex-col gap-8">
+      <h1 class="text-3xl font-bold">YouTube Timestamps to Audacity Labels</h1>
+
+      <form id="input" class="space-y-4" spellcheck="false">
+        <div class="flex flex-col gap-1">
+          <label for="timestamps_input">YouTube Timestamps</label>
+          <textarea
+            id="timestamps_input"
+            class="border border-gray-400 rounded p-1 font-mono text-sm w-full h-40"
+            placeholder="00:00 Ahead on Our Way&#10;03:03 Four Valiant Hearts&#10;05:42 Lenna's Theme"
+          ></textarea>
+        </div>
+        <div class="flex flex-wrap gap-2 justify-between">
+          <div class="flex flex-wrap gap-2">
+            <button type="submit" class="button">Generate labels</button>
+            <button type="reset" class="button">Clear</button>
+          </div>
+          <div>
+            <button id="prefill" class="button">Prefill test data</button>
+          </div>
+        </div>
+      </form>
+
+      <div id="output" class="space-y-4">
+        <div class="flex flex-col gap-1">
+          <label for="labels_output">Output</label>
+          <textarea
+            id="labels_output"
+            placeholder="Audacity labels appear here"
+            class="border border-gray-400 rounded p-1 font-mono text-sm w-full h-80"
+            readonly
+          ></textarea>
+        </div>
+        <div>
+          <button id="copy" class="button">Copy to clipboard</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
